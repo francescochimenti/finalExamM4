@@ -4,7 +4,6 @@ const TOKEN =
 const defURL =  "https://striveschool-api.herokuapp.com/api/product/"
 
 // Controllo che tutti i campi del form siano compilati
-
 function areAllFieldsFilled(productDetails) {
   for (let key in productDetails) {
     if (!productDetails[key]) {
@@ -15,7 +14,6 @@ function areAllFieldsFilled(productDetails) {
 }
 
 // Controllo che ci sia del contenuto all'interno degli input
-
 function checkInput() {
   let inputs = document.querySelectorAll('.input-data input');
 
@@ -196,6 +194,7 @@ function createEditButton(product) {
     document.getElementById("productBrand").value = product.brand;
     document.getElementById("productPrice").value = product.price;
     document.getElementById("productImageUrl").value = product.imageUrl;
+    /* Richiamo la funzione di controllo input, per controllare anche i valori già inseriti dal "modifica" */
     checkInput() 
     document.getElementById("submitButton").value = "Salva";
     document.getElementById("backoffice").textContent = "Modifica prodotto";
