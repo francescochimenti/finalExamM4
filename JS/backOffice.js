@@ -1,7 +1,7 @@
 const TOKEN =
   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGUzMmIzNDFmMTc1YzAwMTRjNTU4ZTMiLCJpYXQiOjE2OTI2MDkzMzIsImV4cCI6MTY5MzgxODkzMn0.c1MdP1IeLb0Yanv8ohow21xWWRwEYiX1HOBD0U57Ckk";
 
-const defURL =  "https://striveschool-api.herokuapp.com/api/product/"
+const defURL = "https://striveschool-api.herokuapp.com/api/product/";
 
 // Controllo che tutti i campi del form siano compilati
 function areAllFieldsFilled(productDetails) {
@@ -15,30 +15,30 @@ function areAllFieldsFilled(productDetails) {
 
 // Controllo che ci sia del contenuto all'interno degli input
 function checkInput() {
-  let inputs = document.querySelectorAll('.input-data input');
+  let inputs = document.querySelectorAll(".input-data input");
 
-  inputs.forEach(input => {
-      // Controllo se quando chiamo la funzione c'è un valore
-      if (input.value) {
-          input.classList.add('has-content');
-      } else {
-          input.classList.remove('has-content');
-      }
-      
-      // Verifica se l'ascoltatore di eventi è già stato aggiunto, nel caso lo raggiungere per stare sempre dietro alle modifiche degli input
-      if (!input.hasInputEvent) {
-          input.addEventListener('input', function() {
-              if (this.value) {
-                  this.classList.add('has-content');
-              } else {
-                  this.classList.remove('has-content');
-              }
-          });
-          // Marca l'input come avente un ascoltatore di eventi
-          input.hasInputEvent = true;
-      }
+  inputs.forEach((input) => {
+    // Controllo se quando chiamo la funzione c'è un valore
+    if (input.value) {
+      input.classList.add("has-content");
+    } else {
+      input.classList.remove("has-content");
+    }
+
+    // Verifica se l'ascoltatore di eventi è già stato aggiunto, nel caso lo raggiungere per stare sempre dietro alle modifiche degli input
+    if (!input.hasInputEvent) {
+      input.addEventListener("input", function () {
+        if (this.value) {
+          this.classList.add("has-content");
+        } else {
+          this.classList.remove("has-content");
+        }
+      });
+      // Marca l'input come avente un ascoltatore di eventi
+      input.hasInputEvent = true;
+    }
   });
-};
+}
 
 checkInput();
 
@@ -67,12 +67,11 @@ async function formSubmit(event) {
       return; // Se qualcosa non è stato riempito termina la funzione e mostra il messaggio
     }
 
-
     const spinner = document.querySelector(".spinner");
-          spinner.style.display = "block";
+    spinner.style.display = "block";
 
     const productId = document.getElementById("productId").value;
-  
+
     const method = productId ? "PUT" : "POST";
 
     const url = productId ? `${defURL}${productId}` : `${defURL}`;
@@ -83,14 +82,16 @@ async function formSubmit(event) {
 
     if (success) {
       const message =
-        method === "PUT" ? "Prodotto aggiornato con successo!" : "Prodotto aggiunto con successo!";
-        
+        method === "PUT"
+          ? "Prodotto aggiornato con successo!"
+          : "Prodotto aggiunto con successo!";
+
       alert(message);
       document.getElementById("product-form").reset();
       document.getElementById("submitButton").value = "Aggiungi";
       document.getElementById("backoffice").textContent = "Aggiungi prodotto";
       document.getElementById("backoffice").classList.remove("text-danger");
-      checkInput()
+      checkInput();
 
       fetchAndDisplayProducts();
     } else {
@@ -98,7 +99,7 @@ async function formSubmit(event) {
     }
   } catch (err) {
     const spinner = document.querySelector(".spinner");
-          spinner.style.display = "none";
+    spinner.style.display = "none";
 
     console.error(err);
     alert("Errore inaspettato.");
@@ -123,15 +124,12 @@ async function sendProductData(url, method, productDetails) {
 
 //Pulsante elimina
 async function handleDelete(product) {
-  const response = await fetch(
-    `${defURL}${product._id}`,
-    {
-      method: "DELETE",
-      headers: {
-        Authorization: TOKEN,
-      },
-    }
-  );
+  const response = await fetch(`${defURL}${product._id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: TOKEN,
+    },
+  });
 
   if (response.ok) {
     alert("Prodotto cancellato con successo!");
@@ -143,14 +141,11 @@ async function handleDelete(product) {
 
 //Aggiungo prodotti alla tabella
 async function fetchAndDisplayProducts() {
-  const response = await fetch(
-    `${defURL}`,
-    {
-      headers: {
-        Authorization: TOKEN,
-      },
-    }
-  );
+  const response = await fetch(`${defURL}`, {
+    headers: {
+      Authorization: TOKEN,
+    },
+  });
 
   const products = await response.json();
   populateTable(products);
@@ -193,10 +188,10 @@ function createEditButton(product) {
     document.getElementById("productPrice").value = product.price;
     document.getElementById("productImageUrl").value = product.imageUrl;
     /* Richiamo la funzione di controllo input, per controllare anche i valori già inseriti dal "modifica" */
-    checkInput() 
+    checkInput();
     document.getElementById("submitButton").value = "Salva";
     document.getElementById("backoffice").textContent = "Modifica prodotto";
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return editButton;
 }

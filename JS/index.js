@@ -31,4 +31,3 @@ async function loadProducts() {
 }
 
 loadProducts();
-

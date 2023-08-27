@@ -1,23 +1,23 @@
 /* ! Main */
 
-body{
+body {
   background: white;
 }
 
-.logo img{
+.logo img {
   height: 75px;
 }
 
-.container{
-    margin-top: 130px;
+.container {
+  margin-top: 130px;
 }
 
-.card{
+.card {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-bottom: 30px;
 }
 
-.card img{
+.card img {
   height: 200px;
   max-height: 200px;
   object-fit: cover;
