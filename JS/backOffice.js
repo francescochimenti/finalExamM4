@@ -25,7 +25,7 @@ function checkInput() {
           input.classList.remove('has-content');
       }
       
-      // Verifica se l'ascoltatore di eventi è già stato aggiunto
+      // Verifica se l'ascoltatore di eventi è già stato aggiunto, nel caso lo raggiungere per stare sempre dietro alle modifiche degli input
       if (!input.hasInputEvent) {
           input.addEventListener('input', function() {
               if (this.value) {
@@ -42,9 +42,6 @@ function checkInput() {
 
 checkInput();
 
-
-
-
 // Raccolgo i dati del prodotto
 function getProductDetails() {
   return {
@@ -55,6 +52,7 @@ function getProductDetails() {
     imageUrl: document.getElementById("productImageUrl").value,
   };
 }
+
 //Gestisco del Form di Invio:
 async function formSubmit(event) {
   try {
@@ -66,7 +64,7 @@ async function formSubmit(event) {
     if (!areAllFieldsFilled(productDetails)) {
       document.getElementById("backoffice").textContent = "Compila tutto!";
       document.getElementById("backoffice").classList.add("text-danger");
-      return; // Se qualcosa non è stato riempito termina la funzioe
+      return; // Se qualcosa non è stato riempito termina la funzione e mostra il messaggio
     }
 
 
