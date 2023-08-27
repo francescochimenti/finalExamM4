@@ -34,7 +34,7 @@ function checkInput() {
           this.classList.remove("has-content");
         }
       });
-      // Marca l'input come avente un ascoltatore di eventi
+      // L'input ha un ascoltatore di eventi
       input.hasInputEvent = true;
     }
   });
