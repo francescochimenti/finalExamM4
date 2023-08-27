@@ -1,0 +1,39 @@
+body{
+    background: rgb(255, 255, 255);
+}
+
+.icon-back{
+    font-size: 50px;
+    color: rgb(0, 0, 0);
+    transition: transform  linear 0.2s;
+  }
+  
+  .icon-back:hover{
+    transform: scale(1.2);
+  }
+
+section{
+    margin-top: 100px;
+}
+
+.nav{
+    background: black;
+}
+
+.sec-img{
+  width: 85%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 50px;
+  border-radius: 10px;
+}
+
+.sec-img img{
+  width: 100%;
+  max-height: 100vh;
+  object-fit: cover;
+  border-radius: 10px;
+}

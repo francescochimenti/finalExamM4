@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="./STYLE/style.css" />
+    <link rel="stylesheet" href="./STYLE/productPage.css" />
+  </head>
+  <body>
+    <a href="index.html" class="logo icon-back">
+      <ion-icon name="home"></ion-icon>
+    </a>
+
+    <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon" />
+    <label for="menu-icon"></label>
+    <nav class="nav">
+      <ul class="pt-5">
+        <li><a href="index.html">Shop</a></li>
+        <li><a href="backOffice.html">backOffice</a></li>
+      </ul>
+    </nav>
+
+    <section class="py-5">
+      <div class="container">
+        <div class="row gx-5">
+          <aside class="col-lg-6">
+            <div class="rounded-4 mb-3 d-flex justify-content-center">
+                <img style="max-width: 100%; max-height: 50vh; margin: auto;" class="rounded-4 fit product-image"  />
+            </div>
+            <div class="d-flex justify-content-center mb-3">
+              <span class="border mx-1 rounded-4 opacity-75">
+                <img style="max-width: 100%; margin: auto;" class="rounded-4 fit product-image"  />
+              </span>
+              <span class="border mx-1 rounded-4 opacity-75">
+                <img style="max-width: 100%; margin: auto;" class="rounded-4 fit product-image"  />
+              </span>
+              <span class="border mx-1 rounded-4 opacity-75">
+                <img style="max-width: 100%; margin: auto;" class="rounded-4 fit product-image"  />
+              </span>
+              <span class="border mx-1 rounded-4 opacity-75">
+                <img style="max-width: 100%; margin: auto;" class="rounded-4 fit product-image"  />
+              </span>
+              <span class="border mx-1 rounded-4 opacity-75">
+                <img style="max-width: 100%; margin: auto;" class="rounded-4 fit product-image"  />
+              </span>
+            </div>
+          </aside>
+          <main class="col-lg-6 mt-5">
+            <div class="ps-lg-3">
+              <h4 class="title display-6">
+                Behind every <span class="fw-bold" id="product-name"></span>, there's an untold narrative waiting to be unveiled.
+              </h4>
+              <div class="d-flex flex-row my-3">
+                <div class="text-warning mb-1 me-2">
+                  <span class="ms-1">
+                    4.5
+                  </span>
+                </div>
+                <span class="text-muted"><i class="fas fa-shopping-basket fa-sm mx-1"></i>154 orders</span>
+                <span class="text-success ms-2">In stock</span>
+              </div>
+    
+              <div class="mb-3">
+                <span class="h5" id="product-price"></span>
+                <span class="text-muted">/per box</span>
+              </div>
+              <p>
+                <span class="fw-bold display-3" id="product-brand"></span>, elevate your expectations.
+              </p>
+              <p>Description: <span class="text-danger" id="product-description"></span></p>
+
+              <div class="row">
+                <dt class="col-3">Type:</dt>
+                <dd class="col-9">Regular</dd>
+    
+                <dt class="col-3">Color</dt>
+                <dd class="col-9">Brown</dd>
+    
+                <dt class="col-3">Material</dt>
+                <dd class="col-9">Cotton, Jeans</dd>
+    
+                <dt class="col-3">Made in</dt>
+                <dd class="col-9">Italy</dd>
+              </div>
+    
+              <hr />
+    
+              <div class="row mb-4">
+                <div class="col-md-4 col-6">
+                  <label class="mb-2">Size</label>
+                  <select class="form-select border border-secondary" style="height: 35px;">
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                  </select>
+                </div>
+              </div>
+              <a href="#" class="btn btn-warning shadow-0"> Buy now </a>
+              <a href="#" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart </a>
+            </div>
+          </main>
+        </div>
+      </div>
+              </section>
+
+              <div class="sec-img">
+                <p class="text-center display-6">Elevate your everyday experience with this exceptional product designed to enhance your lifestyle.</p>
+                <img class="img-fluid product-image">
+              </div>
+
+              <div class="sec-img">
+                <p class="text-center display-6">Discover the perfect blend of quality, innovation, and style in one remarkable product.</p>
+                <img class="img-fluid product-image">
+              </div>
+
+              <div class="sec-img">
+                <p class="text-center display-6">Transform the way you interact with the world, our product brings convenience and excellence together in a single package.
+                </p>
+                <img class="img-fluid product-image">
+              </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="module" src="./JS/productPage.js"></script>
+  </body>
+</html>
