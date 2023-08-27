@@ -72,8 +72,7 @@ form .form-row .textarea{
   font-size: 17px;
   border-bottom: 2px solid rgba(0,0,0, 0.12);
 }
-.input-data input:focus ~ label, .textarea textarea:focus ~ label,
-.input-data input:valid ~ label, .textarea textarea:valid ~ label{
+.input-data input.has-content ~ label {
   transform: translateY(-20px);
   font-size: 14px;
   color: #ff0000;
@@ -111,9 +110,8 @@ form .form-row .textarea{
   transition: transform 0.3s ease;
 }
 .input-data input:focus ~ .underline:before,
-.input-data input:valid ~ .underline:before,
-.textarea textarea:focus ~ .underline:before,
-.textarea textarea:valid ~ .underline:before{
+.textarea textarea:focus ~ .underline:before
+{
   transform: scale(1);
 }
 .submit-btn .input-data{

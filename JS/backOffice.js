@@ -3,6 +3,50 @@ const TOKEN =
 
 const defURL =  "https://striveschool-api.herokuapp.com/api/product/"
 
+// Controllo che tutti i campi del form siano compilati
+
+function areAllFieldsFilled(productDetails) {
+  for (let key in productDetails) {
+    if (!productDetails[key]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// Controllo che ci sia del contenuto all'interno degli input
+
+function checkInput() {
+  let inputs = document.querySelectorAll('.input-data input');
+
+  inputs.forEach(input => {
+      // Controllo se quando chiamo la funzione c'è un valore
+      if (input.value) {
+          input.classList.add('has-content');
+      } else {
+          input.classList.remove('has-content');
+      }
+      
+      // Verifica se l'ascoltatore di eventi è già stato aggiunto
+      if (!input.hasInputEvent) {
+          input.addEventListener('input', function() {
+              if (this.value) {
+                  this.classList.add('has-content');
+              } else {
+                  this.classList.remove('has-content');
+              }
+          });
+          // Marca l'input come avente un ascoltatore di eventi
+          input.hasInputEvent = true;
+      }
+  });
+};
+
+checkInput();
+
+
+
+
 // Raccolgo i dati del prodotto
 function getProductDetails() {
   return {
@@ -18,10 +62,18 @@ async function formSubmit(event) {
   try {
     event.preventDefault();
 
+    const productDetails = getProductDetails();
+
+    // Controlla se tutti i campi sono stati riempiti
+    if (!areAllFieldsFilled(productDetails)) {
+      document.getElementById("backoffice").textContent = "Compila tutto!";
+      document.getElementById("backoffice").classList.add("text-danger");
+      return; // Se qualcosa non è stato riempito termina la funzioe
+    }
+
+
     const spinner = document.querySelector(".spinner");
           spinner.style.display = "block";
-
-    const productDetails = getProductDetails();
 
     const productId = document.getElementById("productId").value;
   
@@ -41,6 +93,8 @@ async function formSubmit(event) {
       document.getElementById("product-form").reset();
       document.getElementById("submitButton").value = "Aggiungi";
       document.getElementById("backoffice").textContent = "Aggiungi prodotto";
+      document.getElementById("backoffice").classList.remove("text-danger");
+      checkInput()
 
       fetchAndDisplayProducts();
     } else {
@@ -142,6 +196,7 @@ function createEditButton(product) {
     document.getElementById("productBrand").value = product.brand;
     document.getElementById("productPrice").value = product.price;
     document.getElementById("productImageUrl").value = product.imageUrl;
+    checkInput() 
     document.getElementById("submitButton").value = "Salva";
     document.getElementById("backoffice").textContent = "Modifica prodotto";
     window.scrollTo({top: 0, behavior: 'smooth'});
